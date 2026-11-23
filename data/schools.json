@@ -3622,7 +3622,7 @@
   "referenceYear": "2026/2027",
   "targetYear": "2027/2028",
   "monitoring": {
-    "lastRunAt": "2026-11-23T14:34:55+00:00",
+    "lastRunAt": "2026-11-23T14:36:53+00:00",
     "sources": {
       "XI": {
         "status": "ok",
@@ -3666,7 +3666,7 @@
             "https://www.kuratorium.lodz.pl/szkoly-i-organy-prowadzace/rekrutacja-do-szkol/"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3682,7 +3682,7 @@
           "Symbol oddziału"
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3705,12 +3705,12 @@
           "Przedmioty uwzględniane w procesie rekrutacji: język polski, matematyka, język angielski, historia lub WOS lub geografia"
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
       "XXVI": {
-        "status": "ok",
+        "status": "error",
         "url": "https://www.lo26.pl/a/oferta-edukacyjna-202627",
         "fingerprint": "ccdf9c0a1030abf9ce624c9b1c7c852444c68df9abcf73d37f78fb681d2f544a",
         "lines": [
@@ -3721,9 +3721,10 @@
           "W roku szkolnym 2026/2027 proponujemy naukę w sześciu klasach"
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
-        "lastChangedAt": null
+        "lastChangedAt": null,
+        "error": "<urlopen error [Errno 101] Network is unreachable>"
       },
       "XXXIII": {
         "status": "ok",
@@ -3772,7 +3773,7 @@
             "https://33lo.pl/strona/klasa-1d"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3801,7 +3802,7 @@
             "https://zseth.edu.lodz.pl/strona/kierunki-ksztalcenia"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3891,7 +3892,7 @@
             "https://zseiu.pl/files/103/szkolny-zestaw-podrecznikow-klasy-v-202627.pdf"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3907,7 +3908,7 @@
           "Znamy już szczegóły rozpoczęcia roku szkolnego 2026/27. Klasy I, II i V zapraszamy na godzinę 9:00 na salę gimnastyczną w budynku przy ul.Kilińskiego 159/163, a następnie do sal lekcyjnych z wychowawcami, a klasy III i IV od razu na godzinę 10:00 na spotkanie z wychowawcami. Harmonogram sal znajdziecie w holu..."
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3919,7 +3920,7 @@
           "W dniach 6-7 października 2026 r. uczniowie klas 5a i 5b technikum wraz z wychowawczyniami uczestniczyli w dwudniowej wycieczce do Kazimierza Dolnegoi Sandomierza."
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -3934,12 +3935,12 @@
           "Szanowni Państwo! W dniu 15 września 2026 r. upłynie termin na złożenie wniosku o udzielenie pomocy materialnej o charakterze socjalnym w formie stypendium szkolnego dla uczniów, których dochód na jednego członka w rodzinie nie przekracza kwoty 823,00 zł/miesiąc. W roku szkolnym 2026/2027 o wskazaną pomoc poza..."
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
       "T6": {
-        "status": "ok",
+        "status": "error",
         "url": "https://www.spozywcza.lodz.pl/a/rekrutacja-20212022",
         "fingerprint": "ad61164c61cfef1342101ab6298dff1b3e3c05962f201b0c4e828b394ebdc306",
         "lines": [
@@ -3958,9 +3959,10 @@
             "https://www.spozywcza.lodz.pl/a/rekrutacja-20212022?eqa=dGV4dD10ZXh0L3RleHQ2JnN1YnBhZ2U9NSZza2dkeWVhcj0yMDI2"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:55+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:55+00:00",
-        "lastChangedAt": null
+        "lastChangedAt": null,
+        "error": "<urlopen error [Errno 101] Network is unreachable>"
       },
       "T7": {
         "status": "ok",
@@ -3995,7 +3997,7 @@
             "https://www.rzeczoznawcy.com.pl/"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4014,7 +4016,7 @@
             "https://zsp9.pl/wynajem-sali-gimnastycznej/"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4044,7 +4046,7 @@
             "https://elektronik.lodz.pl/zsp10-lodz-szkola-podreczniki.html"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:55+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:55+00:00",
         "lastChangedAt": null
       },
@@ -4056,7 +4058,7 @@
           "Uczących się w czterech klasach pierwszych"
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4115,7 +4117,7 @@
             "https://www.zsg-t.pl/index.php/wykaz-podrecznikow-na-rok-szkolny-24_25/"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4148,7 +4150,7 @@
             "https://zsb-t.pl/uploads/6242ed5859394/pages/8/content/terminy-rekrutacji-na-2025-2026.pdf"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4161,7 +4163,7 @@
           "OFERTA KSZTAŁCENIA:"
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4176,7 +4178,7 @@
           "Zapraszamy na Dni Otwarte już 12 marca (godz. 16.00-18.00) i 18 kwietnia 2026 (godz.10.00-13.00). Wydarzenie takie ma charakter mini-warsztatów przybliżających poszczególne zawody, których kształcenie odbywa się w Szkole: - technik grafiki i poligrafii cyfrowej, - technik reklamy, - technik procesów drukowania...."
         ],
         "links": [],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4203,15 +4205,15 @@
             "https://cez.lodz.pl/wp-content/uploads/2026/02/Szkola-rekrutacjaprezentacja2026.pdf"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
       "T20": {
         "status": "error",
         "url": "https://warecka.edu.pl/szkola-nabor/",
-        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'warecka.edu.pl'. (_ssl.c:1129)>",
-        "checkedAt": "2026-11-23T14:34:55+00:00"
+        "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>",
+        "checkedAt": "2026-11-23T14:36:53+00:00"
       },
       "T21": {
         "status": "ok",
@@ -4228,7 +4230,7 @@
             "https://rzemioslolodz.edu.pl/rozpoczecie-roku-szkolnego-2026-2027/"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -4270,7 +4272,7 @@
             "https://zssim.pl/index.php/rekrutacja/kryteria-rekrutacji"
           ]
         ],
-        "checkedAt": "2026-11-23T14:34:04+00:00",
+        "checkedAt": "2026-11-23T14:36:53+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       }
