@@ -91,3 +91,8 @@ W katalogu można użyć gwiazdki „Obserwuj”, również bez opisanych klas. 
 Karty pokazują stan odczytu źródła: sprawdzono, błąd, oczekuje na pierwszy odczyt lub brak ustalonej witryny. Dodając nową szkołę, zachowaj stabilny identyfikator, podaj źródło i `monitorUrl` (albo jawne `null`). Nie twórz fikcyjnej klasy, zawodu ani progu, aby szkoła była widoczna. Współrzędne mogą być `null`; wówczas pozostają adres i dojazd według adresu, bez fałszywego znacznika. Mapa używa geokodowanych adresów, nie wyznacza wejść do budynków.
 
 Kliknięcie znacznika lub nazwy pod mapą ustawia filtr „Szkoła”, otwiera katalog i przewija do szczegółów szkoły. Lista klas pokazuje jej pasujące klasy; szkoła bez opisanych klas nadal ma kartę ze statusem i źródłami. Pozostałe filtry pozostają aktywne. Przycisk przy mapie „Wyczyść wybór szkoły” usuwa tylko ten wybór. „Pokaż na mapie” przy karcie ustawia ten sam filtr i przewija do lokalizacji.
+
+
+## Widok Lekkie karty
+
+Niebieska wersja skupia widok startowy na wyszukiwaniu i kartach szkół. Dodatkowe filtry, mapa, klasy/progi i źródła są rozwijane na żądanie. Katalog pokazuje początkowo 12 kart; przycisk ładuje kolejne 12 bez zmiany zakresu filtrów ani mapy. Kliknięcie szkoły na mapie otwiera jej szczegóły oraz sekcję klas. Obserwowane szkoły i zapisane klasy zachowują dotychczasowe klucze i dane.
