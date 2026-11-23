@@ -4,7 +4,7 @@ Repozytorium przeznaczone do publikacji istniejącej porównywarki jako statyczn
 
 ## Stan przenoszenia
 
-Oryginalny plik `licea-lodz-2027.html` został dodany jako `index.html` na gałęzi `main`, bez zmian w treści strony. Porównywarka zawiera 26 klas i grup z 5 liceów. Style, skrypt oraz dane znajdują się w jednym pliku; nie jest wymagany etap budowania.
+Strona z pliku `licea-lodz-2027.html` znajduje się jako `index.html` na gałęzi `main`. Dodano mapę lokalizacji szkół, adresy przy klasach i linki dojazdu. Porównywarka zawiera 26 klas i grup z 5 liceów. Style aplikacji, skrypt oraz dane znajdują się w jednym pliku; nie jest wymagany etap budowania. Mapa korzysta z Leaflet 1.9.4 (biblioteka i CSS z unpkg.com) oraz kafelków OpenStreetMap, więc jej wyświetlenie wymaga internetu. Gdy mapa się nie wczyta, pozostają dostępne adresy i linki dojazdu po wybraniu szkoły.
 
 ## Przygotowanie strony
 
@@ -36,3 +36,17 @@ Instrukcja opiera się na [dokumentacji GitHub Pages](https://docs.github.com/en
 ## Podgląd lokalny
 
 Po dodaniu pliku otwórz `index.html` w przeglądarce. Dla samodzielnej strony HTML nie jest potrzebna instalacja pakietów ani etap budowania. Pełną weryfikację zapisywania ulubionych i kopiowania listy wykonaj także pod docelowym adresem HTTPS.
+
+## Mapa szkół
+
+Mapa nad listą klas pokazuje licea pasujące do bieżących filtrów (również widoku zapisanych). Kliknij znacznik, nazwę szkoły pod mapą lub „Pokaż na mapie” przy klasie. Wybrana szkoła zostaje przybliżona, a pod mapą pojawiają się adres, link dojazdu w Google Maps i kontakt szkoły. Przycisk „Pokaż widoczne szkoły” przywraca wspólny widok. Dojazd otwiera się w nowej karcie; strona nie pobiera lokalizacji użytkownika.
+
+Adresy sprawdzono 23 listopada 2026 r. w źródłach szkół:
+
+- [XI LO — kontakt](https://11liceumlodz.wikom.pl/strona/kontakt): Kopcińskiego 54.
+- [XXIII LO — kontakt](https://lo23lodz.pl/strona/kontakt-kontakt): Piłsudskiego 159.
+- [XXIV LO — kontakt](https://24lo.pl/strona/kontakt-kontakt): Marysińska 61/67.
+- [XXVI LO — kontakt](https://www.lo26.pl/contact/): Wileńska 22a.
+- [XXXIII LO — kontakt](https://33lo.pl/strona/kontakt): Kusocińskiego 116.
+
+Współrzędne budynków/adresów pozyskano jednorazowo przez Nominatim. Dane mapowe: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Aplikacja nie odpytuje usługi geokodowania podczas korzystania z mapy.
