@@ -4,7 +4,7 @@ Repozytorium przeznaczone do publikacji istniejącej porównywarki jako statyczn
 
 ## Stan przenoszenia
 
-Strona z pliku `licea-lodz-2027.html` znajduje się jako `index.html` na gałęzi `main`. Dodano mapę lokalizacji szkół, adresy przy klasach, linki dojazdu oraz historyczne progi punktowe. Porównywarka zawiera 122 klasy, grupy i warianty kierunków z 5 liceów oraz 18 miejskich techników. Dotychczasowe klasy licealne i klucze ulubionych zostały zachowane. Style aplikacji, skrypt oraz dane znajdują się w jednym pliku; nie jest wymagany etap budowania. Mapa korzysta z Leaflet 1.9.4 (biblioteka i CSS z unpkg.com) oraz kafelków OpenStreetMap, więc jej wyświetlenie wymaga internetu. Gdy mapa się nie wczyta, pozostają dostępne adresy i linki dojazdu po wybraniu szkoły.
+Strona z pliku `licea-lodz-2027.html` znajduje się jako `index.html` na gałęzi `main`. Dodano mapę lokalizacji szkół, adresy przy klasach, linki dojazdu oraz historyczne progi punktowe. Porównywarka zawiera 122 klasy, grupy i warianty kierunków z 5 liceów oraz 18 miejskich techników. Dotychczasowe klasy licealne i klucze ulubionych zostały zachowane. Układ i style znajdują się w `index.html`, skrypt w `app.js`, a jedynym źródłem danych jest `data/schools.json`. Nie jest wymagany etap budowania. Mapa korzysta z Leaflet 1.9.4 (biblioteka i CSS z unpkg.com) oraz kafelków OpenStreetMap, więc jej wyświetlenie wymaga internetu. Gdy mapa się nie wczyta, pozostają dostępne adresy i linki dojazdu po wybraniu szkoły.
 
 ## Przygotowanie strony
 
@@ -35,7 +35,7 @@ Instrukcja opiera się na [dokumentacji GitHub Pages](https://docs.github.com/en
 
 ## Podgląd lokalny
 
-Po dodaniu pliku otwórz `index.html` w przeglądarce. Dla samodzielnej strony HTML nie jest potrzebna instalacja pakietów ani etap budowania. Pełną weryfikację zapisywania ulubionych i kopiowania listy wykonaj także pod docelowym adresem HTTPS.
+Uruchom w katalogu repozytorium `python3 -m http.server 8000` i otwórz http://localhost:8000. Plik JSON jest pobierany przez HTTP; samo otwarcie `index.html` jako lokalnego pliku nie wystarczy. Nie jest potrzebna instalacja pakietów ani etap budowania. Pełną weryfikację zapisywania ulubionych i kopiowania listy wykonaj także pod docelowym adresem HTTPS.
 
 ## Mapa szkół
 
@@ -64,3 +64,17 @@ Dopasowanie obejmuje 93 ze 122 pozycji (25 licealnych i 68 wariantów techników
 Dla licealnych klas obejmujących kilka grup podano osobne wartości z ich oznaczeniami. W XI LO klasy dwujęzyczne mają skalę 300 pkt; nie należy porównywać ich liczbowo z oddziałami o skali 200 pkt. Progi nie gwarantują przyjęcia w kolejnym roku. Kopiowana lista ulubionych zawiera również dostępne progi i ich źródła.
 
 Przy kolejnej aktualizacji sprawdź jednocześnie rocznik oferty i rocznik progów, a następnie symbole oddziałów, zawody i warianty grup. Nie przypisuj automatycznie wyniku klasy o zmienionym profilu.
+
+## Codzienny monitoring informacji o szkołach
+
+`data/schools.json` zawiera `schemaVersion`, `schools`, `classes`, `thresholds` oraz `monitoring`. `schools[id].monitorUrl` określa oficjalną stronę monitorowaną dla danej szkoły. Stabilne identyfikatory szkół i klas zachowują ulubione. `monitoring.sources` przechowuje ostatni poprawny odczyt, jego skrót, datę sprawdzenia i ewentualny błąd. `monitoring.updates` zawiera maksymalnie 100 wykrytych zmian do sprawdzenia. Strona pokazuje datę i zakres ostatniego odczytu oraz zmiany pasujące do filtrów.
+
+Workflow `.github/workflows/daily-school-check.yml` działa raz dziennie o 06:17 UTC (07:17 zimą i 08:17 latem w Polsce). GitHub może opóźnić wykonanie; w publicznych repozytoriach może też wyłączyć harmonogram po 60 dniach braku aktywności. Można uruchomić go ręcznie: Actions → Daily school information check → Run workflow. Pierwsze wdrożenie oraz zmiana skryptu/workflow/testów uruchamiają sprawdzenie także przez `push`.
+
+Skrypt `scripts/check_schools.py` korzysta tylko z biblioteki standardowej Pythona. Odczytuje jedną skonfigurowaną stronę HTML dla każdej szkoły. Porównuje tekst oraz odnośniki związane z rekrutacją, ofertą, profilami, kierunkami, klasami, dniami otwartymi i rokiem 2027/2028. Pomija skrypty, nawigację, nagłówki i stopki. Nie pobiera treści załączników PDF/DOCX ani całych witryn; ich nowe/zmienione odnośniki mogą wywołać wpis do weryfikacji. Zmiany mogą obejmować również stare roczniki. Nie jest to pełne wyszukiwanie wszystkich wiadomości o szkołach.
+
+Pierwszy poprawny odczyt tworzy bazę porównania. Późniejsze zmiany dostają status `needs_review`. Błąd HTTP, certyfikatu lub blokada nie usuwa ostatniej poprawnej treści ani profili/progów. Całkowita niedostępność źródeł kończy job błędem po zapisaniu diagnostyki. Częściowe błędy są widoczne w JSON-ie, na stronie i w logu Actions. HTML nigdy nie jest wykonywany. Wykryty tekst nie staje się automatycznie potwierdzoną ofertą: skrypt aktualizuje wyłącznie `monitoring`, a zweryfikowane klasy i progi zmienia się po sprawdzeniu źródła.
+
+Workflow zapisuje zmiany JSON-a na `main` przez `GITHUB_TOKEN` z uprawnieniem `contents: write`, a następnie żąda ponownego zbudowania GitHub Pages (`pages: write`, API `/pages/builds`). To konieczne, ponieważ commit bota sam nie wyzwala publikacji Pages. Zachowaj ustawienie Pages: Deploy from a branch → main → / (root). Nie są potrzebne dodatkowe sekrety ani płatne API. Jeżeli polityka repozytorium blokuje zapis bota, sprawdź Settings → Actions → General → Workflow permissions i reguły ochrony `main`; log poda dokładny błąd.
+
+Lokalne sprawdzenie: `python3 -m unittest discover -s tests -v`. Odczyt stron: `python3 scripts/check_schools.py`. Po zweryfikowaniu nowej oferty edytuj odpowiednie rekordy `classes` / `thresholds` w JSON-ie, zachowując identyfikatory, rocznik i źródła.
