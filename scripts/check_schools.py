@@ -10,8 +10,8 @@ import re
 from urllib.parse import urljoin, urlparse
 from urllib.request import Request, urlopen
 
-WORDS = re.compile(r'2027|2028|rekrut|ofert|profil|kierunk|oddzia|klas|dni otwart|dzień otwart|prog[ió]|punkt', re.I)
-SKIP = {'script', 'style', 'nav', 'header', 'footer', 'noscript', 'svg', 'form'}
+WORDS = re.compile(r'2027|2028|rekrut|ofert|profil|kierunk|oddzia|klas|dni otwart|dzień otwart|prog[ió]|punkt|admission|recruit|open day|curriculum', re.I)
+SKIP = {'script', 'style', 'nav', 'header', 'footer', 'noscript', 'svg'}
 BLOCK = {'p', 'div', 'li', 'h1', 'h2', 'h3', 'h4', 'tr', 'br', 'section', 'article'}
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'}
 
@@ -64,11 +64,13 @@ def extract(html, url):
     links = sorted(set(p.links))
     # Only relevant text/links, excluding counters, layout, scripts and navigation.
     fingerprint = hashlib.sha256(json.dumps([lines, links], ensure_ascii=False).encode()).hexdigest()
-    return {'fingerprint': fingerprint, 'lines': lines[:300], 'links': [list(v) for v in links[:100]]}
+    return {'extractorVersion': 2, 'fingerprint': fingerprint, 'lines': lines[:300], 'links': [list(v) for v in links[:100]]}
 
 def fetch_source(item):
     code, school = item
-    url = school['monitorUrl']
+    url = school.get('monitorUrl')
+    if not url:
+        return code, {'status': 'not_configured', 'url': None, 'error': 'Brak zweryfikowanej oficjalnej strony szkoły do monitorowania'}
     try:
         if urlparse(url).scheme != 'https':
             raise ValueError('Wymagany adres HTTPS')
@@ -92,12 +94,12 @@ def reconcile(catalog, results, now):
     changed = errors = 0
     for code, result in results:
         old = sources.get(code, {})
-        if result['status'] == 'error':
+        if result['status'] != 'ok':
             errors += 1
             sources[code] = {**old, **result, 'checkedAt': now}
             continue
         # Establish baseline on first read or URL change; preserve baseline across failed reads.
-        baseline = old.get('fingerprint') if old.get('url') == result['url'] else None
+        baseline = old.get('fingerprint') if old.get('url') == result['url'] and old.get('extractorVersion', 1) == result.get('extractorVersion', 1) else None
         different = baseline and baseline != result['fingerprint']
         if different:
             changed += 1
@@ -126,10 +128,11 @@ def main():
     temp.replace(args.data)
     print(f'Sources: {len(results)}; OK: {len(results)-errors}; errors: {errors}; changed: {changed}')
     for code, r in results:
-        if r['status'] == 'error':
+        if r['status'] != 'ok':
             print(f'{code}: {r["error"]}')
     # Persist partial failures, but report complete outage as a failed run.
     return 1 if errors == len(results) else 0
 
 if __name__ == '__main__':
     raise SystemExit(main())
+

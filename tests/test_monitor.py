@@ -29,4 +29,18 @@ class MonitorTests(unittest.TestCase):
   self.assertEqual(c['classes'],original['classes']);self.assertEqual(c['thresholds'],original['thresholds'])
  def test_challenge_not_treated_as_school_update(self):
   with self.assertRaises(ValueError):m.extract('Please verify you are human captcha'*20,'https://school.example/')
+ def test_school_without_website_does_not_stop_other_checks(self):
+  code,result=m.fetch_source(('NEW',{'monitorUrl':None}))
+  self.assertEqual(code,'NEW');self.assertEqual(result['status'],'not_configured')
+  c={'classes':[],'thresholds':{}}
+  self.assertEqual(m.reconcile(c,[(code,result)],'2026-11-23T06:00:00+00:00'),(0,1))
+  self.assertEqual(c['monitoring']['sources']['NEW']['status'],'not_configured')
+ def test_page_content_inside_server_form_is_readable(self):
+  result=m.extract('<form id="aspnetForm">'+self.page()+'</form>','https://school.example/')
+  self.assertTrue(result['lines'])
+ def test_new_extractor_establishes_baseline_without_fake_news(self):
+  c={'monitoring':{'sources':{'S':{'status':'ok','url':'https://school.example/','fingerprint':'old','extractorVersion':1}},'updates':[]}}
+  r={'status':'ok','url':'https://school.example/',**m.extract(self.page(),'https://school.example/')}
+  self.assertEqual(m.reconcile(c,[('S',r)],'2026-11-23T06:00:00+00:00'),(0,0))
+  self.assertEqual(c['monitoring']['updates'],[])
 if __name__=='__main__':unittest.main()

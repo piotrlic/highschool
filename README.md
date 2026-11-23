@@ -4,7 +4,7 @@ Repozytorium przeznaczone do publikacji istniejącej porównywarki jako statyczn
 
 ## Stan przenoszenia
 
-Strona z pliku `licea-lodz-2027.html` znajduje się jako `index.html` na gałęzi `main`. Dodano mapę lokalizacji szkół, adresy przy klasach, linki dojazdu oraz historyczne progi punktowe. Porównywarka zawiera 122 klasy, grupy i warianty kierunków z 5 liceów oraz 18 miejskich techników. Dotychczasowe klasy licealne i klucze ulubionych zostały zachowane. Układ i style znajdują się w `index.html`, skrypt w `app.js`, a jedynym źródłem danych jest `data/schools.json`. Nie jest wymagany etap budowania. Mapa korzysta z Leaflet 1.9.4 (biblioteka i CSS z unpkg.com) oraz kafelków OpenStreetMap, więc jej wyświetlenie wymaga internetu. Gdy mapa się nie wczyta, pozostają dostępne adresy i linki dojazdu po wybraniu szkoły.
+Strona z pliku `licea-lodz-2027.html` znajduje się jako `index.html` na gałęzi `main`. Dodano mapę lokalizacji szkół, adresy przy klasach, linki dojazdu oraz historyczne progi punktowe. Katalog zawiera 89 szkół (59 liceów, w tym 4 plastyczne, oraz 30 techników). Obejmuje publiczne i niepubliczne szkoły dla młodzieży, w tym specjalne. Dla 23 szkół opisano 122 klasy, grupy i warianty kierunków; 66 pozostałych ma samodzielne karty bez przypisywania niezweryfikowanych profili. Dotychczasowe klasy licealne i klucze ulubionych zostały zachowane. Układ i style znajdują się w `index.html`, skrypt w `app.js`, a jedynym źródłem danych jest `data/schools.json`. Nie jest wymagany etap budowania. Mapa korzysta z Leaflet 1.9.4 (biblioteka i CSS z unpkg.com) oraz kafelków OpenStreetMap, więc jej wyświetlenie wymaga internetu. Gdy mapa się nie wczyta, pozostają dostępne adresy i linki dojazdu po wybraniu szkoły.
 
 ## Przygotowanie strony
 
@@ -39,7 +39,7 @@ Uruchom w katalogu repozytorium `python3 -m http.server 8000` i otwórz http://l
 
 ## Mapa szkół
 
-Mapa nad listą klas pokazuje szkoły pasujące do bieżących filtrów (również widoku zapisanych). Kliknij znacznik, nazwę szkoły pod mapą lub „Pokaż na mapie” przy klasie. Wybrana szkoła zostaje przybliżona, a pod mapą pojawiają się adres, link dojazdu w Google Maps i kontakt szkoły. Przycisk „Pokaż widoczne szkoły” przywraca wspólny widok. Dojazd otwiera się w nowej karcie; strona nie pobiera lokalizacji użytkownika.
+Mapa pokazuje szkoły pasujące do bieżących filtrów, również szkoły bez opisanych klas. Filtry przedmiotów, języków, profili, zawodów i zapisanych klas ograniczają wyniki do szkół z pasującymi opisanymi klasami. Wyczyść je, aby wrócić do pełnego katalogu. Kliknij znacznik, nazwę szkoły pod mapą lub „Pokaż na mapie” przy klasie. Wybrana szkoła zostaje przybliżona, a pod mapą pojawiają się adres, link dojazdu w Google Maps i kontakt szkoły. Przycisk „Pokaż widoczne szkoły” przywraca wspólny widok. Dojazd otwiera się w nowej karcie; strona nie pobiera lokalizacji użytkownika.
 
 Adresy sprawdzono 23 listopada 2026 r. w źródłach szkół:
 
@@ -53,7 +53,7 @@ Współrzędne budynków/adresów pozyskano jednorazowo przez Nominatim. Dane ma
 
 ## Technika i historyczne progi punktowe
 
-Dodano typ szkoły (liceum/technikum), filtr zawodu i 96 wariantów kierunków z 18 miejskich techników: nr 1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 17, 18, 19, 20, 21 i 22. W oddziałach łączonych zawody są osobnymi wariantami, a nie dodatkowymi klasami. To nadal katalog wstępny: nie obejmuje wszystkich liceów i techników niepublicznych ani techników prowadzonych przez inne podmioty.
+Dodano typ szkoły (liceum/technikum), filtr zawodu i 96 wariantów kierunków z 18 miejskich techników: nr 1, 2, 3, 4, 5, 6, 7, 9, 10, 12, 13, 15, 17, 18, 19, 20, 21 i 22. W oddziałach łączonych zawody są osobnymi wariantami, a nie dodatkowymi klasami. Oferta klas pozostaje częściowa. Sam katalog szkół rozszerzono o wszystkie licea ogólnokształcące, licea sztuk plastycznych i technika dla młodzieży z łódzkiej części informatora Kuratorium 2026/2027, w tym szkoły niepubliczne i specjalne, oraz XLIV LO z miejskiego wykazu. Nie obejmuje szkół dla dorosłych, branżowych, policealnych ani innych typów szkół artystycznych. Nie jest bieżącym odpisem RSPO.
 
 Źródłem danych techników jest [Informator Kuratorium Oświaty w Łodzi 2026/2027 — kopia PDF udostępniona przez szkołę](https://sp1aleksandrowlodzki.pl/files/94/informator-2026.pdf), strony 44–62. [Strona Kuratorium z informatorem](https://www.kuratorium.lodz.pl/szkoly-i-organy-prowadzace/rekrutacja-do-szkol/) prowadzi również do oryginalnego dokumentu. Każda karta technikum wskazuje konkretną stronę informatora. Przy rozszerzeniach do wyboru, oddziałach łączonych i kilku adresach szkoły zachowano odpowiednie oznaczenia. Mapa wskazuje siedzibę szkoły, a nie wszystkie miejsca zajęć.
 
@@ -67,7 +67,7 @@ Przy kolejnej aktualizacji sprawdź jednocześnie rocznik oferty i rocznik prog�
 
 ## Codzienny monitoring informacji o szkołach
 
-`data/schools.json` zawiera `schemaVersion`, `schools`, `classes`, `thresholds` oraz `monitoring`. `schools[id].monitorUrl` określa oficjalną stronę monitorowaną dla danej szkoły. Stabilne identyfikatory szkół i klas zachowują ulubione. `monitoring.sources` przechowuje ostatni poprawny odczyt, jego skrót, datę sprawdzenia i ewentualny błąd. `monitoring.updates` zawiera maksymalnie 100 wykrytych zmian do sprawdzenia. Strona pokazuje datę i zakres ostatniego odczytu oraz zmiany pasujące do filtrów.
+`data/schools.json` zawiera `schemaVersion`, `schools`, `classes`, `thresholds` oraz `monitoring`. `schools[id].monitorUrl` określa oficjalną stronę monitorowaną dla danej szkoły. Wszystkie szkoły z tym adresem są sprawdzane, niezależnie od obecności klas oraz lokalnego wyboru obserwowanych. Brak ustalonej witryny (`null`) daje status `not_configured` i nie przerywa sprawdzania pozostałych szkół; obecnie dotyczy LO Nowoczesna Edukacja. Nie traktujemy samego wpisu w katalogu jako działającego monitoringu. Stabilne identyfikatory szkół i klas zachowują ulubione. `monitoring.sources` przechowuje ostatni poprawny odczyt, jego skrót, datę sprawdzenia i ewentualny błąd. `monitoring.updates` zawiera maksymalnie 100 wykrytych zmian do sprawdzenia. Strona pokazuje datę i zakres ostatniego odczytu oraz zmiany pasujące do filtrów.
 
 Workflow `.github/workflows/daily-school-check.yml` działa raz dziennie o 06:17 UTC (07:17 zimą i 08:17 latem w Polsce). GitHub może opóźnić wykonanie; w publicznych repozytoriach może też wyłączyć harmonogram po 60 dniach braku aktywności. Można uruchomić go ręcznie: Actions → Daily school information check → Run workflow. Pierwsze wdrożenie oraz zmiana skryptu/workflow/testów uruchamiają sprawdzenie także przez `push`.
 
@@ -78,3 +78,14 @@ Pierwszy poprawny odczyt tworzy bazę porównania. Późniejsze zmiany dostają 
 Workflow zapisuje zmiany JSON-a na `main` przez `GITHUB_TOKEN` z uprawnieniem `contents: write`, a następnie żąda ponownego zbudowania GitHub Pages (`pages: write`, API `/pages/builds`). To konieczne, ponieważ commit bota sam nie wyzwala publikacji Pages. Zachowaj ustawienie Pages: Deploy from a branch → main → / (root). Nie są potrzebne dodatkowe sekrety ani płatne API. Jeżeli polityka repozytorium blokuje zapis bota, sprawdź Settings → Actions → General → Workflow permissions i reguły ochrony `main`; log poda dokładny błąd.
 
 Lokalne sprawdzenie: `python3 -m unittest discover -s tests -v`. Odczyt stron: `python3 scripts/check_schools.py`. Po zweryfikowaniu nowej oferty edytuj odpowiednie rekordy `classes` / `thresholds` w JSON-ie, zachowując identyfikatory, rocznik i źródła.
+
+
+## Pełny katalog szkół i obserwowanie
+
+Wpisy szkół istnieją niezależnie od tablicy `classes`. Każda szkoła ma adres, typ, status publiczno-prawny (`ownership`), kategorię (`category`), źródło wpisu z numerem strony informatora (`catalogSource`), rocznik i status oferty docelowej (`admissions`) oraz informację, czy opisano ofertę referencyjną (`referenceStatus`). Pola `catalog.scope`, `catalog.basis` i `catalog.sources` dokumentują zakres i podstawę zestawienia. Wykaz sporządzono 23.11.2026; zmiany sieci szkół po sporządzeniu informatora wymagają aktualizacji katalogu.
+
+Podstawa 89 wpisów: 28 miejskich LO (w tym XLIV LO uzupełnione z [wykazu Urzędu Miasta](https://uml.lodz.pl/files/public/user_upload/Wykaz_liceow_ogolnoksztalcacych.pdf)), 4 pozostałe publiczne LO, 21 niepublicznych LO, 4 licea sztuk plastycznych, 2 LO specjalne, 18 miejskich techników, 2 pozostałe publiczne technika, 8 niepublicznych techników i 2 technika specjalne. Informator: s. 13–43, 44–63, 65–67 i 69–76. Szkoły o wspólnej siedzibie pozostają osobnymi wpisami. W przypadku LO SPSK aktualny [kontakt szkoły](https://lodz-lotech.spsk.pl/kontakt/) wskazuje Skwer Kolbego 1; rozbieżność z Nałkowskiej 2 w informatorze jest oznaczona na karcie.
+
+W katalogu można użyć gwiazdki „Obserwuj”, również bez opisanych klas. Wybór jest zapisywany lokalnie na tym urządzeniu (`lodz-schools-followed`) i filtrowany przyciskiem „Obserwowane”. Nie wysyła powiadomień e-mail ani nie ogranicza codziennego monitoringu. Serduszka klas zachowują dotychczasowy osobny zapis. Filtr „Bez opisanych klas” pokazuje 66 szkół bez wpisów w `classes`; brak tych wpisów nie jest stwierdzeniem braku oferty ani naboru. Wszystkie wpisy oznaczono jako niepotwierdzone na 2027/2028; historyczne klasy i progi pozostają z rocznika 2026/2027.
+
+Karty pokazują stan odczytu źródła: sprawdzono, błąd, oczekuje na pierwszy odczyt lub brak ustalonej witryny. Dodając nową szkołę, zachowaj stabilny identyfikator, podaj źródło i `monitorUrl` (albo jawne `null`). Nie twórz fikcyjnej klasy, zawodu ani progu, aby szkoła była widoczna. Współrzędne mogą być `null`; wówczas pozostają adres i dojazd według adresu, bez fałszywego znacznika. Mapa używa geokodowanych adresów, nie wyznacza wejść do budynków.

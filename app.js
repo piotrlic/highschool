@@ -10,16 +10,17 @@ function shortLabel(code){return schoolLocations[code].shortLabel}
 function extraLocation(s){return s.additionalAddress?'<br><small>Druga lokalizacja: '+esc(s.additionalAddress)+'. Potwierdź miejsce zajęć.</small>':''}
 let schoolMap=null, visibleSchools=[], selectedSchool=null, mapSignature=null;
 const mapMarkers=new Map();
-function directionsUrl(code){const s=schoolLocations[code];return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(s.lat+','+s.lng)}
+function directionsUrl(code){const s=schoolLocations[code];return 'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(hasCoordinates(s)?s.lat+','+s.lng:s.address)}
 function markerIcon(code){return L.divIcon({className:'school-pin'+(schoolLocations[code].type==='Technikum'?' technical':'')+(selectedSchool===code?' selected':''),html:'<span>'+shortLabel(code)+'</span>',iconSize:[76,36],iconAnchor:[38,18],popupAnchor:[0,-20]})}
-function fitSchools(){if(!schoolMap||!visibleSchools.length)return;schoolMap.fitBounds(visibleSchools.map(code=>{const s=schoolLocations[code];return [s.lat,s.lng]}),{padding:[45,45],maxZoom:15,animate:false})}
+function hasCoordinates(s){return Number.isFinite(s.lat)&&Number.isFinite(s.lng)}
+function fitSchools(){const mapped=visibleSchools.filter(code=>hasCoordinates(schoolLocations[code]));if(!schoolMap||!mapped.length)return;schoolMap.fitBounds(mapped.map(code=>{const s=schoolLocations[code];return [s.lat,s.lng]}),{padding:[45,45],maxZoom:15,animate:false})}
 function selectSchool(code,scroll=false){
  if(!visibleSchools.includes(code))return;
  selectedSchool=code;
  const s=schoolLocations[code];
- el('map-selection').innerHTML='<strong>'+schoolLabel(code)+'</strong> · '+s.address+extraLocation(s)+' · <a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a> · <a href="'+s.source+'" target="_blank" rel="noopener noreferrer">Kontakt szkoły</a>';
+ el('map-selection').innerHTML='<strong>'+esc(schoolLabel(code))+'</strong> · '+esc(s.address)+extraLocation(s)+' · <a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a> · <a href="'+s.source+'" target="_blank" rel="noopener noreferrer">Kontakt szkoły</a>';
  for(const button of el('map-schools').querySelectorAll('button'))button.setAttribute('aria-pressed',String(button.dataset.school===code));
- if(schoolMap){
+ if(schoolMap&&hasCoordinates(s)){
   for(const [id,marker] of mapMarkers)marker.setIcon(markerIcon(id));
   schoolMap.setView([s.lat,s.lng],15,{animate:false});
   mapMarkers.get(code)?.openPopup();
@@ -27,7 +28,7 @@ function selectSchool(code,scroll=false){
  if(scroll){el('map-panel').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});el('school-map').focus({preventScroll:true})}
 }
 function updateSchoolMap(results){
- visibleSchools=[...new Set(results.map(c=>c.school))];
+ visibleSchools=visibleSchoolCodes(results);
  el('map-count').textContent=visibleSchools.length?'Szkoły pasujące do filtrów: '+visibleSchools.length+' z '+Object.keys(schoolLocations).length+'. Kliknij znacznik, aby zobaczyć szczegóły.':'Brak szkół pasujących do filtrów.';
  el('map-fit').disabled=!visibleSchools.length;
  if(!visibleSchools.includes(selectedSchool)){
@@ -36,10 +37,12 @@ function updateSchoolMap(results){
  }
  el('map-schools').replaceChildren();
  for(const code of visibleSchools){const b=document.createElement('button');b.type='button';b.className='map-school';b.dataset.school=code;b.textContent=schoolLabel(code);b.setAttribute('aria-pressed',String(code===selectedSchool));b.addEventListener('click',()=>selectSchool(code));el('map-schools').append(b)}
+ const missing=visibleSchools.filter(code=>!hasCoordinates(schoolLocations[code])).length;
+ if(missing)el('map-count').textContent+=' Adresy bez potwierdzonego znacznika: '+missing+'. Dojazd dostępny w kartach szkół.';
  if(!schoolMap)return;
  for(const marker of mapMarkers.values())marker.remove();
  mapMarkers.clear();
- for(const code of visibleSchools){const s=schoolLocations[code];const marker=L.marker([s.lat,s.lng],{icon:markerIcon(code),title:schoolLabel(code)+' — '+s.address,alt:schoolLabel(code),keyboard:true}).addTo(schoolMap).bindPopup('<strong>'+schoolLabel(code)+'</strong><br>'+s.address+extraLocation(s)+'<br><a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a>');marker.on('click',()=>selectSchool(code));mapMarkers.set(code,marker)}
+ for(const code of visibleSchools){const s=schoolLocations[code];if(!hasCoordinates(s))continue;const marker=L.marker([s.lat,s.lng],{icon:markerIcon(code),title:schoolLabel(code)+' — '+s.address,alt:schoolLabel(code),keyboard:true}).addTo(schoolMap).bindPopup('<strong>'+schoolLabel(code)+'</strong><br>'+s.address+extraLocation(s)+'<br><a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a>');marker.on('click',()=>selectSchool(code));mapMarkers.set(code,marker)}
  const signature=visibleSchools.join('|');
  if(signature!==mapSignature){mapSignature=signature;if(visibleSchools.length)fitSchools();else schoolMap.setView([51.768,19.455],12,{animate:false})}
 }
@@ -52,23 +55,53 @@ function initSchoolMap(){
  }catch{el('map-error').hidden=false}
 }
 
-const el=id=>document.getElementById(id);const state={saved:new Set(),favorites:false};try{state.saved=new Set(JSON.parse(localStorage.getItem('lodz-licea-saved')||'[]'))}catch{}
+const el=id=>document.getElementById(id);const state={saved:new Set(),favorites:false,followed:new Set(),following:false};try{state.followed=new Set(JSON.parse(localStorage.getItem('lodz-schools-followed')||'[]'))}catch{}try{state.saved=new Set(JSON.parse(localStorage.getItem('lodz-licea-saved')||'[]'))}catch{}
 
 function esc(value){return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]))}
 function fill(id,values){for(const v of [...new Set(values)].sort((a,b)=>a.localeCompare(b,'pl',{numeric:true}))){const o=document.createElement('option');o.value=v;o.textContent=v;el(id).append(o)}}
 function fillSchools(){const previous=el('school').value;el('school').replaceChildren();const option=document.createElement('option');option.value='';option.textContent='Wszystkie szkoły';el('school').append(option);const candidates=Object.keys(schoolLocations).filter(code=>!el('type').value||schoolLocations[code].type===el('type').value);fill('school',candidates.map(schoolLabel));el('school').value=candidates.some(code=>schoolLabel(code)===previous)?previous:''}
-fillSchools();fill('subject',data.flatMap(c=>c.subjects));fill('lang',data.flatMap(c=>c.languages));fill('occupation',data.map(c=>c.occupation).filter(Boolean));
+el('catalog-count').textContent=Object.values(schoolLocations).filter(s=>s.type==='Liceum').length+' liceów · '+Object.values(schoolLocations).filter(s=>s.type==='Technikum').length+' techników · publiczne i niepubliczne';
+fill('ownership',Object.values(schoolLocations).map(s=>s.ownership));fillSchools();fill('subject',data.flatMap(c=>c.subjects));fill('lang',data.flatMap(c=>c.languages));fill('occupation',data.map(c=>c.occupation).filter(Boolean));
 function key(c){return c.id||c.school+'-'+c.code}
 function save(){try{localStorage.setItem('lodz-licea-saved',JSON.stringify([...state.saved]))}catch{}}
-function searchText(c){return [schoolLabel(c.school),schoolLocations[c.school].name,c.code,c.profile,c.occupation,...c.subjects,...c.languages].join(' ').toLocaleLowerCase('pl')}
+function searchText(c){return [schoolLabel(c.school),schoolLocations[c.school].name,schoolLocations[c.school].address,c.code,c.profile,c.occupation,...c.subjects,...c.languages].join(' ').toLocaleLowerCase('pl')}
 function matching(c){
  const stem={Humanistyczny:'humanist',Przyrodniczy:'przyrodnicz',Biologiczny:'biolog',Matematyczny:'matematy',Językowy:'język',Integracyjny:'integracyj'}[el('profile').value];
- return (!el('type').value||c.type===el('type').value)&&(!el('school').value||schoolLabel(c.school)===el('school').value)&&(!el('subject').value||c.subjects.includes(el('subject').value))&&(!el('lang').value||c.languages.includes(el('lang').value))&&(!stem||(c.type==='Liceum'&&c.profile.toLowerCase().includes(stem)))&&(!el('occupation').value||c.occupation===el('occupation').value)&&(!state.favorites||state.saved.has(key(c)))&&searchText(c).includes(el('search').value.toLocaleLowerCase('pl').trim())
+ return schoolBaseMatches(c.school)&&(!el('type').value||c.type===el('type').value)&&(!el('school').value||schoolLabel(c.school)===el('school').value)&&(!el('subject').value||c.subjects.includes(el('subject').value))&&(!el('lang').value||c.languages.includes(el('lang').value))&&(!stem||(c.type==='Liceum'&&c.profile.toLowerCase().includes(stem)))&&(!el('occupation').value||c.occupation===el('occupation').value)&&(!state.favorites||state.saved.has(key(c)))&&searchText(c).includes(el('search').value.toLocaleLowerCase('pl').trim())
+}
+function schoolBaseMatches(code){
+ const school=schoolLocations[code],hasClasses=data.some(c=>c.school===code);
+ return (!el('type').value||school.type===el('type').value)&&(!el('school').value||school.label===el('school').value)&&(!el('ownership').value||school.ownership===el('ownership').value)&&(!el('offer-status').value||(el('offer-status').value==='missing'?!hasClasses:hasClasses))&&(!state.following||state.followed.has(code));
+}
+function visibleSchoolCodes(results){
+ const known=new Set(results.map(c=>c.school));
+ const classFilters=['subject','lang','occupation','profile'].some(id=>el(id).value)||state.favorites;
+ const query=el('search').value.toLocaleLowerCase('pl').trim();
+ return Object.keys(schoolLocations).filter(code=>schoolBaseMatches(code)&&(classFilters?known.has(code):known.has(code)||[schoolLabel(code),schoolLocations[code].name,schoolLocations[code].address].join(' ').toLocaleLowerCase('pl').includes(query))).sort((a,b)=>schoolLabel(a).localeCompare(schoolLabel(b),'pl',{numeric:true}));
+}
+function renderDirectory(){
+ el('school-total').textContent=visibleSchools.length+' z '+Object.keys(schoolLocations).length;
+ el('follow-count').textContent=state.followed.size;
+ el('following').classList.toggle('active',state.following);el('following').setAttribute('aria-pressed',String(state.following));
+ el('school-directory').replaceChildren();
+ if(!visibleSchools.length){el('school-directory').innerHTML='<p class="empty">Brak szkół pasujących do filtrów. Filtry przedmiotów i profili obejmują tylko opisane klasy.</p>';return}
+ for(const code of visibleSchools){
+  const school=schoolLocations[code],source=catalog.monitoring?.sources?.[code],count=data.filter(c=>c.school===code).length;
+  const status=source?.status==='ok'?'Źródło sprawdzone: '+new Date(source.checkedAt).toLocaleDateString('pl-PL'):source?.status==='error'?'Ostatni odczyt nieudany — ponowienie codziennie':source?.status==='not_configured'?'Brak ustalonej strony do monitorowania':'Oczekuje na pierwszy odczyt';
+  const card=document.createElement('article');card.className='school-entry';
+  card.innerHTML='<div class="cardtop"><strong>'+esc(school.label)+'</strong><button class="heart '+(state.followed.has(code)?'on':'')+'" aria-label="'+(state.followed.has(code)?'Przestań obserwować: ':'Obserwuj: ')+esc(school.label)+'" aria-pressed="'+state.followed.has(code)+'">'+(state.followed.has(code)?'★':'☆')+'</button></div><p>'+esc(school.name||school.label)+'</p><span class="type-badge '+(school.type==='Technikum'?'technical':'')+'">'+esc(school.type)+' · '+esc(school.ownership)+' · '+esc(school.category)+'</span><p class="admission-status">Klasy 2027/2028: niepotwierdzone</p><p class="muted">'+(count?'Opisana oferta 2026/2027: '+count+' klas, grup lub wariantów.':'Brak opisanych klas w porównywarce. Nie oznacza to braku naboru ani oferty szkoły.')+'</p><address>'+esc(school.address)+'</address>'+extraLocation(school)+(school.addressNote?'<p class="muted">'+esc(school.addressNote)+'</p>':'')+'<p class="muted">'+esc(status)+'</p><div class="actions"><button class="btn secondary" data-show-map>Pokaż na mapie</button><a href="'+esc(directionsUrl(code))+'" target="_blank" rel="noopener noreferrer">Dojazd</a><a href="'+esc(school.catalogSource)+'" target="_blank" rel="noopener noreferrer">Źródło wpisu</a>'+(school.monitorUrl?'<a href="'+esc(school.monitorUrl)+'" target="_blank" rel="noopener noreferrer">Strona szkoły</a>':school.email?'<a href="mailto:'+esc(school.email)+'">Kontakt e-mail</a>':'')+'</div>';
+  card.querySelector('.heart').onclick=()=>{state.followed.has(code)?state.followed.delete(code):state.followed.add(code);try{localStorage.setItem('lodz-schools-followed',JSON.stringify([...state.followed]))}catch{}render()};
+  card.querySelector('[data-show-map]').onclick=()=>selectSchool(code,true);
+  el('school-directory').append(card);
+ }
 }
 function renderUpdates(){
  const m=catalog.monitoring||{},sources=Object.values(m.sources||{}),errors=sources.filter(s=>s.status==='error').length;
  const date=v=>new Date(v).toLocaleString('pl-PL',{timeZone:'Europe/Warsaw'});
  el('monitor-status').textContent=m.lastRunAt?'Ostatnie sprawdzenie: '+date(m.lastRunAt)+'. Sprawdzone źródła: '+sources.filter(s=>s.status==='ok').length+' z '+Object.keys(schoolLocations).length+(errors?' · Niedostępne źródła: '+errors:'')+'.':'Codzienne sprawdzanie oficjalnych stron jest przygotowane. Pierwszy odczyt tworzy punkt odniesienia.';
+ const pending=Object.keys(schoolLocations).filter(code=>!m.sources?.[code]?.checkedAt&&schoolLocations[code].monitorUrl).length,unconfigured=Object.values(schoolLocations).filter(s=>!s.monitorUrl).length;
+ if(pending)el('monitor-status').textContent+=' Oczekuje na pierwszy odczyt: '+pending+'.';
+ if(unconfigured)el('monitor-status').textContent+=' Bez ustalonej strony: '+unconfigured+'.';
  const updates=(m.updates||[]).filter(u=>visibleSchools.includes(u.school));
  el('school-updates').replaceChildren();
  if(!updates.length){el('school-updates').textContent='Brak wykrytych zmian dla wybranych szkół od rozpoczęcia monitorowania. To nie potwierdza braku nowych ofert.';return}
@@ -84,10 +117,10 @@ function scoreMarkup(c){
  return '<div class="score-block"><h4>Próg przyjęcia · 2026/2027'+(points.length>1?' · osobne grupy':'')+'</h4><ul>'+points.map(p=>'<li><span class="score-value">'+p.value.toLocaleString('pl-PL',{minimumFractionDigits:1,maximumFractionDigits:1})+' pkt</span> <span class="muted">/ '+p.scale+'</span><span class="score-label">'+esc(p.label)+(p.scale===300?' · oddział dwujęzyczny, dodatkowy sprawdzian':'')+'</span><a href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">Źródło progu · WaszaEdukacja</a></li>').join('')+'</ul></div>'
 }
 function render(){
- const results=data.filter(matching);updateSchoolMap(results);renderUpdates();el('count').textContent='('+results.length+' z '+data.length+')';el('favcount').textContent=state.saved.size;el('favorites').classList.toggle('active',state.favorites);el('favorites').setAttribute('aria-pressed',String(state.favorites));el('cards').replaceChildren();
+ const results=data.filter(matching);updateSchoolMap(results);renderDirectory();renderUpdates();el('count').textContent='('+results.length+' z '+data.length+')';el('favcount').textContent=state.saved.size;el('favorites').classList.toggle('active',state.favorites);el('favorites').setAttribute('aria-pressed',String(state.favorites));el('cards').replaceChildren();
  const known=results.filter(c=>(historicalScores[key(c)]||[]).length).length;
  el('coverage').textContent='Dla bieżącego wyboru — pozycje z dopasowanym progiem: '+known+'. Bez potwierdzonego progu: '+(results.length-known)+'.';
- if(!results.length){el('cards').innerHTML='<div class="empty">Brak pasujących klas. Zmień filtry lub wyłącz widok zapisanych.</div>';return}
+ if(!results.length){el('cards').innerHTML='<div class="empty">Brak opisanych klas pasujących do filtrów. Szkoły bez opisanej oferty znajdziesz w katalogu powyżej.</div>';return}
  for(const c of results){
   const card=document.createElement('article');card.className='card';
   const pills=c.subjects.length?c.subjects.map(s=>'<span class="pill">'+esc(s)+'</span>').join(''):'<span class="muted">Do weryfikacji</span>';
@@ -95,14 +128,15 @@ function render(){
   card.querySelector('.heart').addEventListener('click',()=>{state.saved.has(key(c))?state.saved.delete(key(c)):state.saved.add(key(c));save();render()});card.querySelector('[data-map-school]').addEventListener('click',()=>selectSchool(c.school,true));el('cards').append(card)
  }
 }
-const filterIds=['type','school','subject','lang','occupation','profile','search'];
+const filterIds=['ownership','offer-status','type','school','subject','lang','occupation','profile','search'];
 for(const id of filterIds)el(id).addEventListener(id==='search'?'input':'change',()=>{
  if(id==='type'){if(el('type').value==='Liceum')el('occupation').value='';if(el('type').value==='Technikum')el('profile').value='';fillSchools()}
  if(id==='occupation'&&el(id).value){el('type').value='Technikum';el('profile').value='';fillSchools()}
  if(id==='profile'&&el(id).value){el('type').value='Liceum';el('occupation').value='';fillSchools()}
  render()
 });
-el('reset').onclick=()=>{for(const id of filterIds)el(id).value='';state.favorites=false;fillSchools();render()};
+el('reset').onclick=()=>{for(const id of filterIds)el(id).value='';state.favorites=false;state.following=false;fillSchools();render()};
+el('following').onclick=()=>{state.following=!state.following;render()};
 el('favorites').onclick=()=>{state.favorites=!state.favorites;render()};
 el('export').onclick=async()=>{
  const list=data.filter(c=>state.saved.has(key(c)));if(!list.length){alert('Najpierw zapisz interesujące klasy, klikając serduszko.');return}
@@ -119,3 +153,4 @@ document.head.append(leafletScript);
 
 }
 start().catch(error=>{console.error(error);document.getElementById('cards').textContent='Nie udało się wczytać danych. Odśwież stronę lub spróbuj ponownie później.';document.getElementById('monitor-status').textContent='Dane chwilowo niedostępne.';});
+
