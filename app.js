@@ -27,22 +27,32 @@ function selectSchool(code,scroll=false){
  }
  if(scroll){el('map-panel').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});el('school-map').focus({preventScroll:true})}
 }
+function chooseSchool(code,showMap=false){
+ if(!visibleSchools.includes(code))return;
+ el('school').value=schoolLabel(code);
+ selectedSchool=code;
+ render();
+ selectSchool(code,showMap);
+ const directory=el('school-directory').closest('details');
+ directory.open=true;
+ if(!showMap){el('directory-heading').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});el('directory-heading').focus({preventScroll:true})}
+}
 function updateSchoolMap(results){
  visibleSchools=visibleSchoolCodes(results);
  el('map-count').textContent=visibleSchools.length?'Szkoły pasujące do filtrów: '+visibleSchools.length+' z '+Object.keys(schoolLocations).length+'. Kliknij znacznik, aby zobaczyć szczegóły.':'Brak szkół pasujących do filtrów.';
- el('map-fit').disabled=!visibleSchools.length;
+ el('map-fit').disabled=!visibleSchools.length;el('map-clear').hidden=!el('school').value;
  if(!visibleSchools.includes(selectedSchool)){
   selectedSchool=null;
   el('map-selection').textContent=visibleSchools.length?'Kliknij znacznik lub nazwę szkoły, aby zobaczyć adres i dojazd.':'Zmień filtry, aby zobaczyć szkoły na mapie.';
  }
  el('map-schools').replaceChildren();
- for(const code of visibleSchools){const b=document.createElement('button');b.type='button';b.className='map-school';b.dataset.school=code;b.textContent=schoolLabel(code);b.setAttribute('aria-pressed',String(code===selectedSchool));b.addEventListener('click',()=>selectSchool(code));el('map-schools').append(b)}
+ for(const code of visibleSchools){const b=document.createElement('button');b.type='button';b.className='map-school';b.dataset.school=code;b.textContent=schoolLabel(code);b.setAttribute('aria-pressed',String(code===selectedSchool));b.addEventListener('click',()=>chooseSchool(code));el('map-schools').append(b)}
  const missing=visibleSchools.filter(code=>!hasCoordinates(schoolLocations[code])).length;
  if(missing)el('map-count').textContent+=' Adresy bez potwierdzonego znacznika: '+missing+'. Dojazd dostępny w kartach szkół.';
  if(!schoolMap)return;
  for(const marker of mapMarkers.values())marker.remove();
  mapMarkers.clear();
- for(const code of visibleSchools){const s=schoolLocations[code];if(!hasCoordinates(s))continue;const marker=L.marker([s.lat,s.lng],{icon:markerIcon(code),title:schoolLabel(code)+' — '+s.address,alt:schoolLabel(code),keyboard:true}).addTo(schoolMap).bindPopup('<strong>'+schoolLabel(code)+'</strong><br>'+s.address+extraLocation(s)+'<br><a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a>');marker.on('click',()=>selectSchool(code));mapMarkers.set(code,marker)}
+ for(const code of visibleSchools){const s=schoolLocations[code];if(!hasCoordinates(s))continue;const marker=L.marker([s.lat,s.lng],{icon:markerIcon(code),title:schoolLabel(code)+' — '+s.address,alt:schoolLabel(code),keyboard:true}).addTo(schoolMap).bindPopup('<strong>'+schoolLabel(code)+'</strong><br>'+s.address+extraLocation(s)+'<br><a href="'+directionsUrl(code)+'" target="_blank" rel="noopener noreferrer">Wyznacz dojazd</a>');marker.on('click',()=>chooseSchool(code));mapMarkers.set(code,marker)}
  const signature=visibleSchools.join('|');
  if(signature!==mapSignature){mapSignature=signature;if(visibleSchools.length)fitSchools();else schoolMap.setView([51.768,19.455],12,{animate:false})}
 }
@@ -91,7 +101,7 @@ function renderDirectory(){
   const card=document.createElement('article');card.className='school-entry';
   card.innerHTML='<div class="cardtop"><strong>'+esc(school.label)+'</strong><button class="heart '+(state.followed.has(code)?'on':'')+'" aria-label="'+(state.followed.has(code)?'Przestań obserwować: ':'Obserwuj: ')+esc(school.label)+'" aria-pressed="'+state.followed.has(code)+'">'+(state.followed.has(code)?'★':'☆')+'</button></div><p>'+esc(school.name||school.label)+'</p><span class="type-badge '+(school.type==='Technikum'?'technical':'')+'">'+esc(school.type)+' · '+esc(school.ownership)+' · '+esc(school.category)+'</span><p class="admission-status">Klasy 2027/2028: niepotwierdzone</p><p class="muted">'+(count?'Opisana oferta 2026/2027: '+count+' klas, grup lub wariantów.':'Brak opisanych klas w porównywarce. Nie oznacza to braku naboru ani oferty szkoły.')+'</p><address>'+esc(school.address)+'</address>'+extraLocation(school)+(school.addressNote?'<p class="muted">'+esc(school.addressNote)+'</p>':'')+'<p class="muted">'+esc(status)+'</p><div class="actions"><button class="btn secondary" data-show-map>Pokaż na mapie</button><a href="'+esc(directionsUrl(code))+'" target="_blank" rel="noopener noreferrer">Dojazd</a><a href="'+esc(school.catalogSource)+'" target="_blank" rel="noopener noreferrer">Źródło wpisu</a>'+(school.monitorUrl?'<a href="'+esc(school.monitorUrl)+'" target="_blank" rel="noopener noreferrer">Strona szkoły</a>':school.email?'<a href="mailto:'+esc(school.email)+'">Kontakt e-mail</a>':'')+'</div>';
   card.querySelector('.heart').onclick=()=>{state.followed.has(code)?state.followed.delete(code):state.followed.add(code);try{localStorage.setItem('lodz-schools-followed',JSON.stringify([...state.followed]))}catch{}render()};
-  card.querySelector('[data-show-map]').onclick=()=>selectSchool(code,true);
+  card.querySelector('[data-show-map]').onclick=()=>chooseSchool(code,true);
   el('school-directory').append(card);
  }
 }
@@ -125,7 +135,7 @@ function render(){
   const card=document.createElement('article');card.className='card';
   const pills=c.subjects.length?c.subjects.map(s=>'<span class="pill">'+esc(s)+'</span>').join(''):'<span class="muted">Do weryfikacji</span>';
   card.innerHTML=`<div class="cardtop"><span class="school">${esc(schoolLabel(c.school))}</span><span class="classcode">${esc(c.code)}</span></div><span class="type-badge ${c.type==='Technikum'?'technical':''}">${c.type}${c.type==='Technikum'?' · 5 lat':c.code==='0W'?' · rok wstępny':' · 4 lata'}</span><h3>${esc(c.profile)}</h3>${c.type==='Technikum'?'<div class="school-fullname">'+esc(schoolLocations[c.school].name)+'</div>':''}<div><div class="sub">${c.school==='T12'?'Rozszerzenie — jeden do wyboru':'Przedmioty rozszerzone'}</div><div class="pills">${pills}</div></div><div><div class="sub">Języki w ofercie</div><div class="muted">${c.languages.map(esc).join(' · ')}</div></div>${c.note?'<div class="muted">ⓘ '+esc(c.note)+'</div>':''}${scoreMarkup(c)}<div class="status"><span class="dot"></span> Oferta referencyjna ${c.year}</div><div class="location-row"><address>${esc(schoolLocations[c.school].address)}</address><button class="btn secondary" data-map-school="${c.school}">Pokaż na mapie</button></div><div class="cardfoot"><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.sourceLabel)}</a><button class="heart ${state.saved.has(key(c))?'on':''}" aria-label="${state.saved.has(key(c))?'Usuń z zapisanych':'Dodaj do zapisanych'}" title="Zapisz klasę">${state.saved.has(key(c))?'♥':'♡'}</button></div>`;
-  card.querySelector('.heart').addEventListener('click',()=>{state.saved.has(key(c))?state.saved.delete(key(c)):state.saved.add(key(c));save();render()});card.querySelector('[data-map-school]').addEventListener('click',()=>selectSchool(c.school,true));el('cards').append(card)
+  card.querySelector('.heart').addEventListener('click',()=>{state.saved.has(key(c))?state.saved.delete(key(c)):state.saved.add(key(c));save();render()});card.querySelector('[data-map-school]').addEventListener('click',()=>chooseSchool(c.school,true));el('cards').append(card)
  }
 }
 const filterIds=['ownership','offer-status','type','school','subject','lang','occupation','profile','search'];
@@ -144,6 +154,7 @@ el('export').onclick=async()=>{
  try{await navigator.clipboard.writeText(txt);el('export').textContent='Skopiowano ✓';setTimeout(()=>el('export').textContent='Kopiuj listę',1800)}catch{prompt('Skopiuj listę:',txt)}
 };render();
 
+el('map-clear').onclick=()=>{el('school').value='';selectedSchool=null;render();schoolMap?.closePopup();fitSchools()};
 el('map-fit').onclick=()=>{selectedSchool=null;updateSchoolMap(data.filter(matching));schoolMap?.closePopup();el('map-selection').textContent=visibleSchools.length?'Kliknij znacznik lub nazwę szkoły, aby zobaczyć adres i dojazd.':'Zmień filtry, aby zobaczyć szkoły na mapie.';fitSchools()};
 const leafletScript=document.createElement('script');
 leafletScript.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
