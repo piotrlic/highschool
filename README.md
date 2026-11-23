@@ -4,11 +4,11 @@ Repozytorium przeznaczone do publikacji istniejącej porównywarki jako statyczn
 
 ## Stan przenoszenia
 
-Dodano instrukcję publikacji. Plik źródłowy `licea-lodz-2027.html` z poprzedniej rozmowy nie został jeszcze udostępniony w tej sesji, dlatego `index.html` nie został dodany i publikacja porównywarki nie jest potwierdzona.
+Oryginalny plik `licea-lodz-2027.html` został dodany jako `index.html` na gałęzi `main`, bez zmian w treści strony. Porównywarka zawiera 26 klas i grup z 5 liceów. Style, skrypt oraz dane znajdują się w jednym pliku; nie jest wymagany etap budowania.
 
 ## Przygotowanie strony
 
-1. Umieść oryginalny plik `licea-lodz-2027.html` w katalogu głównym repozytorium pod nazwą `index.html` na gałęzi `main`.
+1. Strona startowa znajduje się w katalogu głównym jako `index.html` na gałęzi `main`. Przy kolejnych aktualizacjach zachowaj tę nazwę.
 2. Jeżeli strona odwołuje się do dodatkowych lokalnych plików, dodaj je z zachowaniem ścieżek względnych. Adres witryny zawiera prefiks `/highschool/`.
 3. Zachowaj oznaczenia danych: zestawienie 2026/2027 oraz niepotwierdzona oferta 2027/2028. Przeniesienie strony nie stanowi aktualizacji ani ponownej weryfikacji ofert.
 
