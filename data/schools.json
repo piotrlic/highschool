@@ -5284,7 +5284,7 @@
   "referenceYear": "2026/2027",
   "targetYear": "2027/2028",
   "monitoring": {
-    "lastRunAt": "2026-11-26T16:49:20+00:00",
+    "lastRunAt": "2026-11-27T16:34:16+00:00",
     "sources": {
       "XI": {
         "status": "ok",
@@ -5329,7 +5329,7 @@
             "https://www.kuratorium.lodz.pl/szkoly-i-organy-prowadzace/rekrutacja-do-szkol/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5346,7 +5346,7 @@
           "Symbol oddziału"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5370,12 +5370,12 @@
           "Przedmioty uwzględniane w procesie rekrutacji: język polski, matematyka, język angielski, historia lub WOS lub geografia"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
       "XXVI": {
-        "status": "error",
+        "status": "ok",
         "url": "https://www.lo26.pl/a/oferta-edukacyjna-202627",
         "extractorVersion": 2,
         "fingerprint": "ccdf9c0a1030abf9ce624c9b1c7c852444c68df9abcf73d37f78fb681d2f544a",
@@ -5387,10 +5387,9 @@
           "W roku szkolnym 2026/2027 proponujemy naukę w sześciu klasach"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": null
       },
       "XXXIII": {
         "status": "ok",
@@ -5440,7 +5439,7 @@
             "https://33lo.pl/strona/klasa-1d"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5470,7 +5469,7 @@
             "https://zseth.edu.lodz.pl/strona/kierunki-ksztalcenia"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5478,7 +5477,7 @@
         "status": "ok",
         "url": "https://www.zseiu.pl/",
         "extractorVersion": 2,
-        "fingerprint": "b8b8ada85725029d08783becd1f0edcbc42a50a314c123a86901072d75fd0d4c",
+        "fingerprint": "a7d0f4f7f1f17243a55c7dbfb5414e743ecb88c81a08f6ae44a384e83d428c57",
         "lines": [
           "Kierunki kształcenia",
           "Link do rekrutacji elektronicznej",
@@ -5492,17 +5491,12 @@
           "Wykaz podręczników dla klas II",
           "Wykaz podręczników dla klas III",
           "Wykaz podręczników dla klas IV",
-          "Wykaz podręczników dla klas V",
-          "Śladami Tuwima i klocków LEGO – spacer klasy IId"
+          "Wykaz podręczników dla klas V"
         ],
         "links": [
           [
             "19.05.2026 Link do rekrutacji elektronicznej Czytaj więcej",
             "https://rekrutacje-lodz.pzo.edu.pl/omikron-public/"
-          ],
-          [
-            "19.05.2026 Śladami Tuwima i klocków LEGO – spacer klasy IId Czytaj więcej",
-            "https://zseiu.pl/sladami-tuwima-i-klockow-lego-spacer-klasy-iid,97,pl"
           ],
           [
             "26.08.2026 Uroczyste rozpoczęcie roku szkolnego 2026/2027 Czytaj więcej",
@@ -5561,9 +5555,9 @@
             "https://zseiu.pl/files/103/szkolny-zestaw-podrecznikow-klasy-v-202627.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
-        "lastChangedAt": "2026-11-25T17:08:21+00:00"
+        "lastChangedAt": "2026-11-27T16:34:16+00:00"
       },
       "T3": {
         "status": "ok",
@@ -5578,7 +5572,7 @@
           "Znamy już szczegóły rozpoczęcia roku szkolnego 2026/27. Klasy I, II i V zapraszamy na godzinę 9:00 na salę gimnastyczną w budynku przy ul.Kilińskiego 159/163, a następnie do sal lekcyjnych z wychowawcami, a klasy III i IV od razu na godzinę 10:00 na spotkanie z wychowawcami. Harmonogram sal znajdziecie w holu..."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5591,7 +5585,7 @@
           "W dniach 6-7 października 2026 r. uczniowie klas 5a i 5b technikum wraz z wychowawczyniami uczestniczyli w dwudniowej wycieczce do Kazimierza Dolnegoi Sandomierza."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5607,12 +5601,12 @@
           "Szanowni Państwo! W dniu 15 września 2026 r. upłynie termin na złożenie wniosku o udzielenie pomocy materialnej o charakterze socjalnym w formie stypendium szkolnego dla uczniów, których dochód na jednego członka w rodzinie nie przekracza kwoty 823,00 zł/miesiąc. W roku szkolnym 2026/2027 o wskazaną pomoc poza..."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
       "T6": {
-        "status": "error",
+        "status": "ok",
         "url": "https://www.spozywcza.lodz.pl/a/rekrutacja-20212022",
         "extractorVersion": 2,
         "fingerprint": "ad61164c61cfef1342101ab6298dff1b3e3c05962f201b0c4e828b394ebdc306",
@@ -5632,10 +5626,9 @@
             "https://www.spozywcza.lodz.pl/a/rekrutacja-20212022?eqa=dGV4dD10ZXh0L3RleHQ2JnN1YnBhZ2U9NSZza2dkeWVhcj0yMDI2"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:55+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": null
       },
       "T7": {
         "status": "ok",
@@ -5671,7 +5664,7 @@
             "https://www.rzeczoznawcy.com.pl/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5692,7 +5685,7 @@
             "https://zsp9.pl/wynajem-sali-gimnastycznej/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": "2026-11-26T16:49:20+00:00"
       },
@@ -5723,7 +5716,7 @@
             "https://elektronik.lodz.pl/zsp10-lodz-szkola-podreczniki.html"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:55+00:00",
         "lastChangedAt": null
       },
@@ -5731,14 +5724,31 @@
         "status": "ok",
         "url": "https://www.zspm.net/",
         "extractorVersion": 2,
-        "fingerprint": "7dc9add60c24538e7692313fe537596aeceef9913c246ba5ea34e34d44f12ee3",
+        "fingerprint": "59042558569a0586161ba1f35a9803cbb93272b6135c6a1dfb327a3b1606ad20",
         "lines": [
-          "Uczących się w czterech klasach pierwszych"
+          "Aktualne kierunki kształcenia",
+          "Kierunki kształcenia",
+          "Krawiec z oddziałami integracyjnymi",
+          "Rekrutacja",
+          "Rekrutacja 2027/2028 trwa!"
         ],
-        "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "links": [
+          [
+            "Kierunki kształcenia",
+            "https://sc0487.scooli.pl/kierunki-ksztalcenia"
+          ],
+          [
+            "Krawiec z oddziałami integracyjnymi",
+            "https://zspm.net/krawiec-z-oddzialami-integracyjnymi"
+          ],
+          [
+            "Rekrutacja",
+            "https://sc0487.scooli.pl/rekrutacja"
+          ]
+        ],
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
-        "lastChangedAt": null
+        "lastChangedAt": "2026-11-27T16:34:16+00:00"
       },
       "T13": {
         "status": "ok",
@@ -5796,7 +5806,7 @@
             "https://www.zsg-t.pl/index.php/wykaz-podrecznikow-na-rok-szkolny-24_25/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": "2026-11-26T16:49:20+00:00"
       },
@@ -5830,7 +5840,7 @@
             "https://zsb-t.pl/uploads/6242ed5859394/pages/8/content/terminy-rekrutacji-na-2025-2026.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5851,7 +5861,7 @@
             "https://zst-i.pl/wpis/miedzyklasowy-turniej-siatkowki-dwa-dni-sportowych-emocji"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": "2026-11-25T17:08:21+00:00"
       },
@@ -5867,7 +5877,7 @@
           "Zapraszamy na Dni Otwarte już 12 marca (godz. 16.00-18.00) i 18 kwietnia 2026 (godz.10.00-13.00). Wydarzenie takie ma charakter mini-warsztatów przybliżających poszczególne zawody, których kształcenie odbywa się w Szkole: - technik grafiki i poligrafii cyfrowej, - technik reklamy, - technik procesów drukowania...."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5895,7 +5905,7 @@
             "https://cez.lodz.pl/wp-content/uploads/2026/02/Szkola-rekrutacjaprezentacja2026.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5903,7 +5913,7 @@
         "status": "error",
         "url": "https://warecka.edu.pl/szkola-nabor/",
         "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1011)>",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "T21": {
         "status": "ok",
@@ -5921,7 +5931,7 @@
             "https://rzemioslolodz.edu.pl/rozpoczecie-roku-szkolnego-2026-2027/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5964,7 +5974,7 @@
             "https://zssim.pl/index.php/rekrutacja/kryteria-rekrutacji"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:34:04+00:00",
         "lastChangedAt": null
       },
@@ -5989,7 +5999,7 @@
           "We wszystkich klasach możliwa jest współpraca"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6002,7 +6012,7 @@
           "10. Pana/Pani dane osobowe nie będą podlegały zautomatyzowanym procesom podejmowania decyzji przez Administratora, w tym profilowaniu."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6024,7 +6034,7 @@
             "https://trzecieliceum.pl/?p=7111"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6037,15 +6047,15 @@
           "Oferta edukacyjna"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
       "VI": {
-        "status": "error",
+        "status": "ok",
         "url": "https://www.lo6.szkoly.lodz.pl",
         "extractorVersion": 2,
-        "fingerprint": "45c4002756daaa24906c5a16f4435bef90b97e81f217386ecc4d7121b3785b9c",
+        "fingerprint": "b223039f9003deb41280601e2de9ba48613d066414364c071acf874beb7361db",
         "lines": [
           "6 października w naszej szkole odbyła się uroczysta premiera filmu pt. „Wnusia” (2026). Dzieło w reżyserii uczniów klasy filmowej: Mariki Darnowskiej oraz Jakuba Baranowskiego zgromadziło fanów kina gatunku oraz talentu naszych uczniów. Zapraszamy do obejrzenia relacji z wydarzenia. Fot. Michał Dondzik",
           "9 września 2026 roku uczniowie z klas filmowych odwiedzili Narodowe Centrum Kultury Filmowej w Łodzi, w którym obejrzeli „Rok diabła” Petera Zelenki oraz wzięli udział w rozmowie po filmie. W spotkaniu z widzami udział wzięli: Petr Vlček – dyrektor Czeskiego Centrum w Warszawie, Jacek Grudzień – szef Radia Łódź. Rozmowę poprowadził Michał Dondzik. Fot. Sebastian Szwajkowski (Radio Łódź).",
@@ -6057,7 +6067,9 @@
           "Podczas pobytu w Wilnie uczennice klasy IV T odwiedziły na cmentarzu na Rossie grób Joachima Lelewela, patrona naszego liceum. 2026 rok jest szczególny – przypada 240. rocznica urodzin oraz 165. rocznica śmierci Joachima Lelewela. To dobra okazja, aby podczas pobytu w Wilnie odwiedzić miejsce Jego spoczynku i przypomnieć postać człowieka, którego imię od lat nosi nasza szkoła. Lelewel był wybitnym historykiem i profesorem Uniwersytetu Wileńskiego. Z Wilnem związany był w szczególny sposób – tutaj studiował i prowadził działalność naukową.",
           "Rozpoczęcie roku szkolnego 2026/2027",
           "Rozpoczęcie roku szkolnego 2026/2027: Czytaj więcej",
+          "W dniu 20 listopada klasy IV b i IV odbyła wycieczkę do byłego Obozu Zagłady Auschwitz-Birkenau. Ta ważna i pouczająca wizyta była pełna powagi, zadumy nad okrucieństwem Drugiej wojny światowej oraz istotą człowieczeństwa.",
           "W dniu 8 lipca 2026 r. nasi Absolwenci poznali wyniki egzaminu maturalnego – zwieńczenie wielu miesięcy intensywnej nauki, systematycznej pracy i zaangażowania. Był to dzień pełen emocji: od niepewności i stresu po radość oraz satysfakcję z osiągniętych rezultatów. Najwyższy wynik na poziomie podstawowym uzyskała Zosia Lasoń z klasy IV C, natomiast najwyższy łączny wynik z egzaminów na poziomie podstawowym i rozszerzonym osiągnęła Marysia Pryczek z klasy IV T. Serdecznie gratulujemy wszystkim Maturzystom uzyskanych wyników i życzymy powodzenia w realizacji dalszych planów edukacyjnych oraz zawodowych!",
+          "W piątek 20 listopada 2026 r. uczniowie klasy II A uczestniczyli w warsztatach edukacyjnych „What the fejk?” zorganizowanych w EC1 Łódź – Miasto Kultury. Celem zajęć było rozwijanie umiejętności krytycznego myślenia oraz świadomego odbioru informacji pojawiających się w mediach i internecie.",
           "We wtorek, 20 października 2026 roku, uczniowie klasy filmowej odwiedzili siedzibę główną Radia Łódź. Po salach nagrań i kabinach realizatorów audycji radiowych oprowadziła nas charyzmatyczna Barbara Pawłowska, znana również jako „Kustosz Basia”.",
           "godz. 10.00, klasy III.",
           "godz. 8:30, klasy I i II",
@@ -6081,13 +6093,12 @@
             "https://www.lo6.szkoly.lodz.pl/news/?gtnid=253"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": "2026-11-27T16:34:16+00:00"
       },
       "VIII": {
-        "status": "error",
+        "status": "ok",
         "url": "https://8lolodz.edupage.org/a/oferta-edukacyjna-na-rok-20262027",
         "extractorVersion": 2,
         "fingerprint": "33a37ce9beee2c733798377368241db37872bc06f524355f60a11490ae010bb1",
@@ -6177,10 +6188,9 @@
             "https://8lolodz.edupage.org/a/oferta-edukacyjna-na-rok-20262027?eqa=dGV4dD10ZXh0L3RleHQxMTImc3VicGFnZT0zJnNrZ2R5ZWFyPTIwMjY%3D"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": null
       },
       "IX": {
         "status": "ok",
@@ -6194,7 +6204,7 @@
           "We wtorek, 10 listopada, punktualnie o godz. 11.11, w sali gimnastycznej IX LO rozbrzmiał „Mazurek Dąbrowskiego”. Młodzież i nauczyciele Dziewiątki włączyli się w ogólnopolską akcję"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6230,7 +6240,7 @@
             "https://lo12lodz.wikom.pl/strona/profile-klas-oczami-rodzica"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6293,12 +6303,12 @@
             "https://13lo.edu.pl/uploads/603304c92c4e7/pages/4/content/Podr__czniki_2026_2027.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
       "XV": {
-        "status": "error",
+        "status": "ok",
         "url": "https://xvlo-lodz.edupage.org/a/rekrutacja-1",
         "extractorVersion": 2,
         "fingerprint": "6bd7c1e54d273f94bac4924262d3bb38952cf1b293d8602584b3d6970e829b99",
@@ -6344,13 +6354,12 @@
             "https://cloud-c.edupage.org/cloud/KWESTIONARIUSZ_OSOBOWY_1d_26_27.pdf?z%3ASZYuXaJFKIBmgZJQghg53hwJC4eG7SRtKj6e%2Fc1dbTzgkZvmbRQD5Bu36zWouLm%2Bpgi7tm9PSWGhwv00U1ZRRQ%3D%3D"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": null
       },
       "XVIII": {
-        "status": "error",
+        "status": "ok",
         "url": "https://liceum18lodz.edupage.org/",
         "extractorVersion": 2,
         "fingerprint": "845c018a9fa044299ac84f0fc85e1658f153f27ca2c4ae0368832493669c9f4f",
@@ -6360,10 +6369,9 @@
           "W XVIII Liceum Ogólnokształcącym odbyło się spotkanie uczniów klas drugich z funkcjonariuszami Straży Miejskiej. Zajęcia zostały zorganizowane w ramach programu „Potrafię, Wiem, Działam (AED)” i dotyczyły zasad udzielania pierwszej pomocy przedmedycznej."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
-        "lastChangedAt": null,
-        "error": "<urlopen error [Errno 101] Network is unreachable>"
+        "lastChangedAt": null
       },
       "XX": {
         "status": "ok",
@@ -6377,7 +6385,7 @@
           "bogata oferta wycieczek tematycznych"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6399,7 +6407,7 @@
             "https://lo21lodz.pl/wpis/immatrykulacja-uczniow-klas-pierwszych/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6427,15 +6435,15 @@
             "https://www.lo25.pl/1745-wycieczka-klasy-4d"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
       "XXIX": {
         "status": "error",
         "url": "https://www.bytnarowka.pl",
-        "error": "<urlopen error [Errno 101] Network is unreachable>",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "error": "Brak czytelnej treści o ofercie/rekrutacji",
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "XXX": {
         "status": "ok",
@@ -6459,7 +6467,7 @@
             "https://liceumnasowinskiego.pl/kategoria/wydarzenia-2026-2027"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-25T17:08:21+00:00"
       },
@@ -6487,7 +6495,7 @@
             "https://lo31.pl/oferta/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6503,7 +6511,7 @@
           "Oferta edukacyjna - Liceum Ogólnoksztalcące nr 34"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6525,7 +6533,7 @@
             "https://lo42lodz.pl/kategoria/rok-szkolny-2026-2027"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6542,7 +6550,7 @@
           "Symbol oddziału"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6570,7 +6578,7 @@
             "https://www.47lo.pl/pdf/podrecz_26_27.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6596,7 +6604,7 @@
             "https://lo32lodz.pl/wp-content/uploads/2026/01/ulotki-26-27.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6609,7 +6617,7 @@
           "10. Pana/Pani dane osobowe nie będą podlegały zautomatyzowanym procesom podejmowania decyzji przez Administratora, w tym profilowaniu."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6627,7 +6635,7 @@
             "https://lodz-lotech.spsk.pl/rekrutacja/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6635,7 +6643,7 @@
         "status": "error",
         "url": "https://liceum.p.lodz.pl/",
         "error": "Strona blokująca odczyt lub zbyt mało treści",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "LUL": {
         "status": "ok",
@@ -6671,7 +6679,7 @@
             "https://www.liceum.uni.lodz.pl/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6699,7 +6707,7 @@
           "świadectwo ukończenia klasy 7 SP (oryginał zwrócimy po wykonaniu kopii)"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -6722,7 +6730,7 @@
             "https://www.gov.pl/web/plastyklodz/uroczystosc-rozpoczecia-roku-szkolnego-20262027-1092026"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -6743,7 +6751,7 @@
             "https://plastyk.sei.edu.pl/rekrutacja/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-26T16:49:20+00:00"
       },
@@ -6807,7 +6815,7 @@
             "https://www.instagram.com/p/DgFAjxpFWjH"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-25T17:08:21+00:00"
       },
@@ -7008,7 +7016,7 @@
             "https://www.cosinus.pl/zapisy-on-line"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -7033,7 +7041,7 @@
             "https://sosw1.szkoly.lodz.pl/punkt-konsulatcyjny/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7046,7 +7054,7 @@
           "10. Pana/Pani dane osobowe nie będą podlegały zautomatyzowanym procesom podejmowania decyzji przez Administratora, w tym profilowaniu."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7062,7 +7070,7 @@
           "Te pliki cookie i skrypty mogą być ustawione poprzez naszą stronę przez zewnętrzne usługi hostingu wideo, takie jak YouTube lub Vimeo. Mogą być używane do dostarczania treści wideo na naszej stronie internetowej. Jest możliwe, aby dostawca wideo mógł stworzyć profil Twoich zainteresowań i pokazać Ci odpowiednie reklamy na tej lub innych stronach internetowych. Nie przechowują bezpośrednio danych osobowych, ale opierają się na unikalnym identyfikowaniu przeglądarki i urządzenia internetowego. Jeśli nie zezwolisz na te pliki cookie lub skrypty, możliwe jest, że osadzone wideo nie będzie działać zgodnie z oczekiwaniami."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7075,7 +7083,7 @@
           "Przechowywanie lub dostęp techniczny jest wymagany do tworzenia profili użytkowników w celu wysyłania reklam lub śledzenia użytkownika na stronie internetowej lub na kilku stronach internetowych w podobnych celach marketingowych."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7100,7 +7108,7 @@
             "https://www.akademickielo.com.pl/rozpoczecie-roku-szkolnego-2026-27"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7140,7 +7148,7 @@
             "https://www.szkolybernardynskie.pl/blog/warsztaty-przyrodnicze-klas-trzecich-w-bibliotece-slowka"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-25T17:08:21+00:00"
       },
@@ -7163,7 +7171,7 @@
             "https://www.katolik.edu.pl/szkola-podstawowa/kola-zainteresowan"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-26T16:49:20+00:00"
       },
@@ -7200,7 +7208,7 @@
             "http://szkolypilsudskiego.edu.pl/klasa-z-jezykiem-polskim-dla-obcokrajowcow/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7220,7 +7228,7 @@
           "„Przeniesienie syna do Kokoro to była najlepsza decyzja. W poprzedniej szkole był tylko numerem w dzienniku, tutaj czuje się ważny i zauważony. Kameralne klasy i stałe wsparcie psychologa sprawiły, że w końcu uwierzył w siebie. Widzę, że idzie do szkoły z uśmiechem, a to dla mnie bezcenne”"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7240,7 +7248,7 @@
           "przedmioty uwzględniane w procesie rekrutacji: matematyka, geografia, język obcy, język polski"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7282,7 +7290,7 @@
             "https://gitlan.pl/misiaki/atuty/systemip/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7313,7 +7321,7 @@
           "Zdobywasz punkty"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -7331,7 +7339,7 @@
             "http://lodz.sei.edu.pl/rekrutacja-liceum/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7532,7 +7540,7 @@
             "https://www.cosinus.pl/zapisy-on-line"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -7540,7 +7548,7 @@
         "status": "error",
         "url": "https://www.mikron.edu.pl/",
         "error": "Brak czytelnej treści o ofercie/rekrutacji",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "LEIS": {
         "status": "ok",
@@ -7568,7 +7576,7 @@
             "https://msms.eu/oferta-szkoly/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7598,7 +7606,7 @@
           "➡️zajęcia profilowe prowadzone przez kierownika obsługi naziemnej PL im.Wł.Reymonta w Łodzi oraz przez pracownika linii lotniczych i centrum szkoleniowego pilotów Bartolini Air"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7633,7 +7641,7 @@
             "https://britishinterschool.pl/wp-content/uploads/2026/05/FSS-2026-2027.pdf"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -7659,7 +7667,7 @@
             "https://forms.gle/QcTn8nB9PpE8VJh79"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7667,7 +7675,7 @@
         "status": "not_configured",
         "url": null,
         "error": "Brak zweryfikowanej oficjalnej strony szkoły do monitorowania",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "LLYK": {
         "status": "ok",
@@ -7680,7 +7688,7 @@
           "Uczniowie klasy czwartej stworzyli pomysłowe modele DNA, zamieniając wiedzę z lekcji w przestrzenne konstrukcje. Takie prace pomagają lepiej zrozumieć budowę podwójnej helisy i zapamiętać jej elementy."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7688,13 +7696,13 @@
         "status": "error",
         "url": "https://smslodz.pl/",
         "error": "Brak czytelnej treści o ofercie/rekrutacji",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "LGOR": {
         "status": "error",
         "url": "https://szkolagortata.pl/",
         "error": "Brak czytelnej treści o ofercie/rekrutacji",
-        "checkedAt": "2026-11-26T16:49:20+00:00"
+        "checkedAt": "2026-11-27T16:34:16+00:00"
       },
       "TSAL": {
         "status": "ok",
@@ -7750,7 +7758,7 @@
             "https://szkolyrzemiosl.edu.pl/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7772,7 +7780,7 @@
             "https://lodz-lotech.spsk.pl/rekrutacja/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7785,7 +7793,7 @@
           "10. Pana/Pani dane osobowe nie będą podlegały zautomatyzowanym procesom podejmowania decyzji przez Administratora, w tym profilowaniu."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7810,7 +7818,7 @@
             "https://sosw1.szkoly.lodz.pl/punkt-konsulatcyjny/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7826,7 +7834,7 @@
           "Te pliki cookie i skrypty mogą być ustawione poprzez naszą stronę przez zewnętrzne usługi hostingu wideo, takie jak YouTube lub Vimeo. Mogą być używane do dostarczania treści wideo na naszej stronie internetowej. Jest możliwe, aby dostawca wideo mógł stworzyć profil Twoich zainteresowań i pokazać Ci odpowiednie reklamy na tej lub innych stronach internetowych. Nie przechowują bezpośrednio danych osobowych, ale opierają się na unikalnym identyfikowaniu przeglądarki i urządzenia internetowego. Jeśli nie zezwolisz na te pliki cookie lub skrypty, możliwe jest, że osadzone wideo nie będzie działać zgodnie z oczekiwaniami."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7839,7 +7847,7 @@
           "Przechowywanie lub dostęp techniczny jest wymagany do tworzenia profili użytkowników w celu wysyłania reklam lub śledzenia użytkownika na stronie internetowej lub na kilku stronach internetowych w podobnych celach marketingowych."
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7873,7 +7881,7 @@
             "https://technikumlodz.pl/rekrutacja"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -7905,7 +7913,7 @@
             "https://technikum.io/rekrutacja-3/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -8106,7 +8114,7 @@
             "https://www.cosinus.pl/zapisy-on-line"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:53:54+00:00",
         "lastChangedAt": null
       },
@@ -8119,7 +8127,7 @@
           "Max. 15 osób w klasie"
         ],
         "links": [],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-24T17:37:18+00:00"
       },
@@ -8165,7 +8173,7 @@
             "https://anagra.pl/zapisz-sie/"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": null
       },
@@ -8223,12 +8231,36 @@
             "https://www.instagram.com/p/DgFAjxpFWjH"
           ]
         ],
-        "checkedAt": "2026-11-26T16:49:20+00:00",
+        "checkedAt": "2026-11-27T16:34:16+00:00",
         "baselineAt": "2026-11-23T14:51:10+00:00",
         "lastChangedAt": "2026-11-25T17:08:21+00:00"
       }
     },
     "updates": [
+      {
+        "id": "T2-2026-11-27T16:34:16+00:00",
+        "school": "T2",
+        "detectedAt": "2026-11-27T16:34:16+00:00",
+        "url": "https://www.zseiu.pl/",
+        "excerpt": "Usunięto lub zmieniono fragmenty informacji o rekrutacji albo odnośniki do oferty.",
+        "status": "needs_review"
+      },
+      {
+        "id": "T12-2026-11-27T16:34:16+00:00",
+        "school": "T12",
+        "detectedAt": "2026-11-27T16:34:16+00:00",
+        "url": "https://www.zspm.net/",
+        "excerpt": "Rekrutacja 2027/2028 trwa! Rekrutacja Kierunki kształcenia Aktualne kierunki kształcenia Krawiec z oddziałami integracyjnymi",
+        "status": "needs_review"
+      },
+      {
+        "id": "VI-2026-11-27T16:34:16+00:00",
+        "school": "VI",
+        "detectedAt": "2026-11-27T16:34:16+00:00",
+        "url": "https://www.lo6.szkoly.lodz.pl",
+        "excerpt": "W dniu 20 listopada klasy IV b i IV odbyła wycieczkę do byłego Obozu Zagłady Auschwitz-Birkenau. Ta ważna i pouczająca wizyta była pełna powagi, zadumy nad okrucieństwem Drugiej wojny światowej oraz istotą człowieczeństwa. W piątek 20 listopada 2026 r. uczniowie klasy II A uczestniczyli w warsztatach edukacyjnych „What the fejk?” zorganizowanych w EC1 Łódź – Miasto Kultury. Celem zajęć było rozwijanie umiejętności krytycznego myślenia oraz świadomego odbioru informacji pojawiających się w mediach i internecie.",
+        "status": "needs_review"
+      },
       {
         "id": "T9-2026-11-26T16:49:20+00:00",
         "school": "T9",
